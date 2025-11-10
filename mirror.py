@@ -17,6 +17,7 @@ while True:
     
     # turn the image into mirror image
     frame = cv.flip(frame, 1)
+    height, width = frame.shape[:2]
 
     # if frame is read correctly ret is True
     if not ret:
@@ -25,6 +26,14 @@ while True:
 
     # Our operations on the frame come here
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+    # Display Text
+    cv.putText(frame, "Hello", (50,100), 
+    			cv.FONT_HERSHEY_SIMPLEX,
+				2,             # font_scale
+				(150,0,150),   # color
+				4)  # thickness
+
     # Display the resulting frame
     #cv.imshow('frame', gray)
     cv.imshow('frame', frame)
